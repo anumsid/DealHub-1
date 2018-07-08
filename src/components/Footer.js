@@ -5,9 +5,9 @@ class Footer extends React.Component {
   render(){
 
     return(
-      <footer class="page-footer">
-        <nav class="navbar fixed-bottom">
-          <p class="navbar-brand"> © 2018 DealHub</p>
+      <footer className="page-footer">
+        <nav className="navbar fixed-bottom">
+          <p className="navbar-brand"> © 2018 DealHub</p>
         </nav>
       </footer>
     )
