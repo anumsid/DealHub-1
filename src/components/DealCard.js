@@ -30,7 +30,7 @@ class DealCard extends React.Component {
         {/*  <Likes />
         <Comments addComment={this.handleClick} /> */}
 
-        <button onClick={this.handleClick}>Add Comment</button>
+        
 
       </div>
     )
