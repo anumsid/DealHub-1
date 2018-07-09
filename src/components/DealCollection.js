@@ -1,12 +1,18 @@
 import React from 'react'
+import DealCard from './components/DealCard'
 
-class DealCollection extends React.Component {
-  render(){
-    
+const DealCollection = (props) =>  {
+  const card = props.deals.map(deal => {
+    return <DealCard key={deal.id} card={deal}/>
+  })
+
+
     return(
-
-      // <DealCard />
-
+      <div>
+        {card}
+      </div>
     )
-  }
+
 }
+
+export default DealCard;
