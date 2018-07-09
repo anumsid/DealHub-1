@@ -17,12 +17,24 @@ class Comments extends React.Component {
     }))
   }
 
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
+  handleChange = () => {
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
+
   render(){
 
     return(
-      <form>
-        <input type="text" placeholder="Add Comment" value=""/>
+      <form onSubmit = {this.handleSubmit}>
+        <input onChange={this.handleChange} type="text" placeholder="Add Comment" name="comment"/>
         <label htmlFor="Add Comment">Add Comment</label>
+        <button>Add Comment!</button>
       </form>
 
       <ul>

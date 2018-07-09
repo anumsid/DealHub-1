@@ -13,9 +13,6 @@ class DealCard extends React.Component {
   }
 
 
-  handleClick = () => {
-
-  }
 
   render(){
 
@@ -28,9 +25,9 @@ class DealCard extends React.Component {
         <p>{expiration_date}</p>
         <p>{description}</p>
         {/*  <Likes />
-        <Comments addComment={this.handleClick} /> */}
+        <Comments />  */}
 
-        
+
 
       </div>
     )
