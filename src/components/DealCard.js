@@ -11,8 +11,14 @@ class DealCard extends React.Component {
       likes: total_votes,
     }
   }
+
+
+  handleClick = () => {
+
+  }
+
   render(){
-    const {}
+
     return(
       <div>
         <h1>{title}</h1>
@@ -22,7 +28,9 @@ class DealCard extends React.Component {
         <p>{expiration_date}</p>
         <p>{description}</p>
         {/*  <Likes />
-        <Comments /> */}
+        <Comments addComment={this.handleClick} /> */}
+
+        <button onClick={this.handleClick}>Add Comment</button>
 
       </div>
     )
