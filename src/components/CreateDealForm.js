@@ -8,7 +8,8 @@ class CreateDealForm extends React.Component {
     this.state = {
       title: '',
       location: '',
-      expiration: '',
+      expiration_date: '',
+      category: '',
       image: ''
     }
   }
@@ -19,53 +20,76 @@ class CreateDealForm extends React.Component {
     const newDeal = {
       title: this.state.title,
       location: this.state.location,
-      expiration: this.state.expiration,
+      expiration_date: this.state.expiration,
+      category: this.state.category,
       image: this.state.image
       }
-    }
 
-    // fetch(, {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type':'application/json'
-    //   },
-    //   body: JSON.stringify(newDeal),
-    // })
-    //   .then(resp => resp.json())
-    //   .then(resp => this.props.newpokemon(resp))
-    //
-    //    e.target.reset()
-    // }
+    fetch(`http://localhost:3000/api/v1/deals`, {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json',
+        'Accept':'application/json'
+      },
+      body: JSON.stringify(newDeal),
+    })
+      .then(resp => resp.json())
+      .then(console.log)
 
-  handleName = (e) => {
+       e.target.reset()
+  }
+
+
+  handleTitle = (e) => {
     console.log(e.target.value);
     this.setState({
-      name: e.target.value
+      title: e.target.value
     })
   }
 
-  handleHp = (e) => {
+  handleLocation = (e) => {
     console.log(e.target.value);
     this.setState({
-      hp: e.target.value
+      location: e.target.value
     })
   }
 
-  handleFrontUrl = (e) => {
+  handleExpiration = (e) => {
     console.log(e.target.value);
     this.setState({
-      frontUrl: e.target.value
+      expiration: e.target.value
     })
   }
 
-  handleBackUrl = (e) => {
+  handleCategory = (e) => {
+    // debugger;
+    console.log(e.target.innerText);
+    this.setState({
+      category: e.target.innerText
+    })
+  }
+
+  handleImage = (e) => {
     console.log(e.target.value);
     this.setState({
-      backUrl: e.target.value
+      image: e.target.value
     })
   }
 
   render(){
+
+  const options = [
+    { key: 'food', text: 'Food', value: 'food' },
+    { key: 'beverages', text: 'Beverages', value: 'beverages' },
+    { key: 'groceries', text: 'Groceries', value: 'groceries' },
+    { key: 'technology', text: 'Technology', value: 'technology' },
+    { key: 'electronics', text: 'Electronics', value: 'electronics' },
+    { key: 'apparel', text: 'Apparel', value: 'apparel' },
+    { key: 'auto', text: 'Auto', value: 'auto' },
+    { key: 'home', text : 'Home', value: 'home' },
+    { key: 'sports & outdoors', text : 'Sports & Outdoors', value: 'sports & outdoors' },
+    { key: 'pet supplies', text : 'Pet Supplies', value: 'pet supplies' }
+  ]
 
     return(
       <div>
@@ -73,10 +97,13 @@ class CreateDealForm extends React.Component {
         <h3>Add New Deal</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
-            <Form.Input fluid label="title" placeholder="title" name="title" onChange={this.handleName}/>
-            <Form.Input fluid label="location" placeholder="location" name="location" onChange={this.handleHp}/>
-            <Form.Input fluid label="expiration" placeholder="expiration" name="expiration" onChange={this.handleFrontUrl}/>
-            <Form.Input fluid label="image [OPTIONAL]" placeholder="url" name="image" onChange={this.handleBackUrl}/>
+            <Form.Input fluid label="title" placeholder="title" name="title" onChange={this.handleTitle}/>
+            <Form.Input fluid label="location" placeholder="location" name="location" onChange={this.handleLocation}/>
+            <Form.Input fluid label="expiration" placeholder="expiration" name="expiration" onChange={this.handleExpiration}/>
+
+            <Form.Select fluid label='Categories' options={options} placeholder='Select Category' onChange={this.handleCategory}/>
+
+            <Form.Input fluid label="image [OPTIONAL]" placeholder="url" name="image" onChange={this.handleImage}/>
           </Form.Group>
           <br />
           <Form.Button>Submit Deal</Form.Button>

@@ -34,6 +34,7 @@ class SearchDeals extends React.Component {
   }
 
   render(){
+    
     const { deals, isLoading, value } = this.state
 
     return(
