@@ -9,12 +9,9 @@ import DealCard from './components/DealCard'
 import CreateDealForm from './components/CreateDealForm'
 
 ReactDOM.render(
-<Router>
-  <div>
-    <Route exact path="/" render={() => <App />} />
-    <Route exact path="/deal" component={DealCard} />
-    <Route exact path="/add" component={CreateDealForm} />
-  </div>
-</Router>,
+  <Router>
+    <App />
+  </Router>,
+
 document.getElementById('root'));
 registerServiceWorker();

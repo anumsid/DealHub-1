@@ -21,7 +21,7 @@ const DealCollection = (props) =>  {
   const cards = props.deals.map(deal => {
     return <DealCard key={deal.id} card={deal}/>
   })
-  //console.log(cards);
+  console.log(props.deals);
 
     return(
       <div className="card-columns">

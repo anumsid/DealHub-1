@@ -48,7 +48,10 @@ class DealCard extends React.Component {
       <div className="card" style={{width: '18rem'}}>
         <img className="card-img-top" src={cardData.image} alt="Card image cap"/>
         <div className="card-body">
-          <h5 className="card-title">{cardData.title}</h5>
+          <h4 className="card-title">{cardData.title}</h4>
+          <h5 className="card-title">@: {cardData.location}</h5>
+          <h5 className="card-title">{cardData.category}</h5>
+          <h5 className="card-expiration">Until: {cardData.expiration_date}</h5>
           <p className="card-text">{cardData.description}</p>
           <a href="#" className="btn btn-primary">See Details</a>
         </div>

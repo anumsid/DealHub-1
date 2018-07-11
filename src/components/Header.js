@@ -1,7 +1,9 @@
 import React from 'react'
 import NewDealButton from './NewDealButton'
 import CreateDealForm from './CreateDealForm'
-import SearchDeals from './Search'
+import Search from './Search'
+import { Link } from 'react-router-dom'
+// import { withRouter } from 'react-router'
 
 // class Header extends React.Component {
 //   constructor(props){
@@ -34,17 +36,27 @@ import SearchDeals from './Search'
 const Header = (props) => {
   console.log(props)
   return(
-    <div>
-      <button secondary="true" className="page-footer new-deal-button" onClick={props.onClick}>
-       Add New Deal
-     </button>
+    <div className="fixed-top">
+      <Link to="/add">
+        <button secondary="true" className="page-footer new-deal-button" onClick={props.onClick}>
+         Add New Deal
+        </button>
+      </Link>
 
-     <SearchDeals />
+     <Search />
+
+     {/* <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#">Logout</a>
+      </div>
+    </div> */}
 
      <header className="App-header align-content-center">
        <h1 className="App-title">Welcome to DealHub</h1>
        {/* <img src={logo} className="App-logo" alt="logo" /> */}
      </header>
+
     </div>
   )
 }

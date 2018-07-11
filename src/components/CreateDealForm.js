@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import { withRouter } from 'react-router'
 
 class CreateDealForm extends React.Component {
     constructor() {
@@ -10,6 +11,7 @@ class CreateDealForm extends React.Component {
       location: '',
       expiration_date: '',
       category: '',
+      description: '',
       image: ''
     }
   }
@@ -20,10 +22,13 @@ class CreateDealForm extends React.Component {
     const newDeal = {
       title: this.state.title,
       location: this.state.location,
-      expiration_date: this.state.expiration,
+      expiration_date: this.state.expiration_date,
       category: this.state.category,
+      description: this.state.description,
       image: this.state.image
       }
+
+      // console.log(newDeal);
 
     fetch(`http://localhost:3000/api/v1/deals`, {
       method: 'POST',
@@ -34,30 +39,40 @@ class CreateDealForm extends React.Component {
       body: JSON.stringify(newDeal),
     })
       .then(resp => resp.json())
-      .then(console.log)
+      .then(deal => {
+        this.props.createDeal(deal)
+        this.props.history.push('/')
+      })
 
        e.target.reset()
   }
 
 
   handleTitle = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
       title: e.target.value
     })
   }
 
   handleLocation = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
       location: e.target.value
     })
   }
 
   handleExpiration = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
-      expiration: e.target.value
+      expiration_date: e.target.value
+    })
+  }
+
+  handleDescription = (e) => {
+    // console.log(e.target.value);
+    this.setState({
+      description: e.target.value
     })
   }
 
@@ -70,14 +85,14 @@ class CreateDealForm extends React.Component {
   }
 
   handleImage = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     this.setState({
       image: e.target.value
     })
   }
 
   render(){
-
+    console.log(this.props);
   const options = [
     { key: 'food', text: 'Food', value: 'food' },
     { key: 'beverages', text: 'Beverages', value: 'beverages' },
@@ -92,18 +107,24 @@ class CreateDealForm extends React.Component {
   ]
 
     return(
-      <div>
+      <div className="createNewDeal">
         <br />
         <h3>Add New Deal</h3>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
+
             <Form.Input fluid label="title" placeholder="title" name="title" onChange={this.handleTitle}/>
+
             <Form.Input fluid label="location" placeholder="location" name="location" onChange={this.handleLocation}/>
-            <Form.Input fluid label="expiration" placeholder="expiration" name="expiration" onChange={this.handleExpiration}/>
+
+            <Form.TextArea fluid label='description'  placeholder='describe this deal' onChange={this.handleDescription}/>
+
+            <Form.Input fluid type="date" value={this.state.expiration_date} label="expiration" placeholder="expiration" name="expiration" onChange={this.handleExpiration}/>
 
             <Form.Select fluid label='Categories' options={options} placeholder='Select Category' onChange={this.handleCategory}/>
 
             <Form.Input fluid label="image [OPTIONAL]" placeholder="url" name="image" onChange={this.handleImage}/>
+
           </Form.Group>
           <br />
           <Form.Button>Submit Deal</Form.Button>
@@ -113,4 +134,4 @@ class CreateDealForm extends React.Component {
   }
 }
 
-export default CreateDealForm
+export default withRouter(CreateDealForm)

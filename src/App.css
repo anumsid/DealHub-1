@@ -58,6 +58,15 @@ footer {
   padding-top: 50px;
 }
 
+.createNewDeal {
+  padding-top: 80px;
+}
+
+/* .navbar-nav {
+  color: red;
+  margin-top: 60px;
+} */
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
