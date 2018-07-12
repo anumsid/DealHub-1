@@ -24,12 +24,14 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
-import Footer from './components/Footer'
+import FooterNav from './components/Footer'
 import DealCollection from './components/DealCollection'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Switch } from 'react-router-dom'
+import { Switch, withRouter } from 'react-router-dom'
 import DealCard from './components/DealCard'
 import CreateDealForm from './components/CreateDealForm'
+import DealCardItem from './components/DealCardItem'
+import Comments from './components/Comments'
 
 class App extends Component {
   constructor(){
@@ -43,7 +45,6 @@ class App extends Component {
 
   componentDidMount(){
     this.fetchCards()
-
   }
 
   fetchCards = () => {
@@ -55,28 +56,49 @@ class App extends Component {
   }
 
   updateDeals = (newDeal) => {
-    console.log(newDeal);
+    // console.log(newDeal);
     this.setState({
       deals: [...this.state.deals, newDeal]
     })
   }
 
 
+  dealInfo = (card) => {
+    // const id = card.id
+    this.setState({
+      currentDeal: card
+    }, () => {
+        this.props.history.push(`/deals/${card.id}`)
+    })
+  }
+
+
   render() {
-    console.log(this.state.deals)
+    console.log(this.props)
     return (
       <div className="App">
 
         {/* <Router>
           <div> */}
-            <Header onClick={this.handleClick}/>
+            <Header />
             <Switch>
-              <Route exact path="/" render={() => <DealCollection className="cardsList" deals={this.state.deals} />} />
-              <Route exact path="/deal" component={DealCard} />
+
+              <Route exact path="/" render={() => <DealCollection className="cardsList" deals={this.state.deals} handleClick={this.dealInfo} />} />
+
+              {/* <Route exact path="/deal" render={() => <DealCard card={this.state.currentDeal} />} /> */}
+
+              <Route exact path="/deals/:id" render={() => <DealCardItem card={this.state.currentDeal} />} />
+
+              <Route exact path="/deals/:id/comments" render={() => <Comments className="comments" sendCard={this.dealInfo} />} />
+
+
               <Route exact path="/add" render={() => <CreateDealForm createDeal={this.updateDeals} />} />
+
+
+
             </Switch>
-            <Footer className="footer"/>
-          {/* </div>    
+            <FooterNav className="footer"/>
+          {/* </div>
         </Router> */}
 
       </div>
@@ -85,4 +107,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);
