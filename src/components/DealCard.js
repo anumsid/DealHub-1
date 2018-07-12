@@ -46,7 +46,7 @@ class DealCard extends React.Component {
     const cardData = this.props.card ? (this.props.card) : {title: '', likes: '', image: '', description: '', location: '', category: '', expiration_date: ''}
     //console.log('props:', this.props.card, cardData)
     return(
-      <div className="card" style={{width: '20rem'}}>
+      <div className="card mb-4 mx-auto" style={{width: '24rem'}}>
         <img className="card-img-top" src={cardData.image} alt="Card image cap"/>
         <div className="card-body">
           <h4 className="card-title">{cardData.title}</h4>

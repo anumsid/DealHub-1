@@ -34,7 +34,7 @@ import { Link } from 'react-router-dom'
 // export default Header
 
 const Header = (props) => {
-  // console.log(props)
+  console.log(props)
   return(
     <div className="fixed-top">
       <Link to="/add">
@@ -43,12 +43,12 @@ const Header = (props) => {
         </button>
       </Link>
 
-     <Search />
+     <Search onChange={props.onChange} />
 
-     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
-        <a className="nav-item nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
-        <a className="nav-item nav-link" href="#">Logout</a>
+     <div className="navbar-collapse" id="navbarNavAltMarkup">
+      <div className="navItems">
+        <Link className="linkItem text-light" to='/deals'>Home</Link>
+        <Link className="linkItem text-light" to='/login'>Logout</Link>
       </div>
     </div>
 

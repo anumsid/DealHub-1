@@ -51,10 +51,10 @@ class Comments extends React.Component {
     console.log(this.state.comments);
 
     return(
-      <div>
+      <div className="comments">
         <form onSubmit = {this.handleSubmit}>
           <input onChange={this.handleChange} type="text" placeholder="Add Comment" name="comment"/>
-          <label htmlFor="Add Comment">Add Comment</label>
+          <label htmlFor="Add Comment"></label>
           <button>Add Comment!</button>
         </form>
 

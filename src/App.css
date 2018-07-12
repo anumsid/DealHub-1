@@ -36,9 +36,18 @@
   margin-left: 330px;
 }
 
-.search {
+.searchInput {
   float: right;
   margin: 17px 30px 0 0;
+}
+
+.navItems {
+  float: left;
+  margin: 25px 0 0 30px;
+}
+
+.linkItem{
+  padding-right: 20px;
 }
 
 .clearfix {
@@ -61,6 +70,14 @@ footer {
 .createNewDeal {
   padding-top: 80px;
 }
+
+.signInPage {
+  padding-top: 140px;
+}
+
+/* .comments{
+  padding-bottom: 180px;
+} */
 
 /* .navbar-nav {
   color: red;

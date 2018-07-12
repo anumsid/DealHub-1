@@ -111,7 +111,7 @@ class CreateDealForm extends React.Component {
         <br />
         <h3>Add New Deal</h3>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths="equal">
+          <Form style={{width: '40rem'}} className="mx-auto large">
 
             <Form.Input fluid label="title" placeholder="title" name="title" onChange={this.handleTitle}/>
 
@@ -125,7 +125,7 @@ class CreateDealForm extends React.Component {
 
             <Form.Input fluid label="image [OPTIONAL]" placeholder="url" name="image" onChange={this.handleImage}/>
 
-          </Form.Group>
+          </Form>
           <br />
           <Form.Button>Submit Deal</Form.Button>
         </Form>

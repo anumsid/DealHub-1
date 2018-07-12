@@ -32,6 +32,7 @@ import DealCard from './components/DealCard'
 import CreateDealForm from './components/CreateDealForm'
 import DealCardItem from './components/DealCardItem'
 import Comments from './components/Comments'
+import SignIn from './components/SignIn'
 
 class App extends Component {
   constructor(){
@@ -39,6 +40,7 @@ class App extends Component {
 
     this.state = {
       deals: [],
+      searchTerm: '',
       currentDeal : {}
     }
   }
@@ -72,6 +74,21 @@ class App extends Component {
     })
   }
 
+  handleChange = (e) => {
+  // console.log(this);
+  console.log(e.target.value);
+  this.setState({
+    searchTerm: e.target.value.toLowerCase()
+    })
+  }
+
+filteredDeals = () => {
+  return this.state.deals.filter(deal => {
+    return deal.category.toLowerCase().includes(this.state.searchTerm) || deal.title.toLowerCase().includes(this.state.searchTerm)
+    // || deal.description.toLowerCase().includes(this.state.searchTerm)
+  })
+}
+
 
   render() {
     console.log(this.props)
@@ -80,10 +97,12 @@ class App extends Component {
 
         {/* <Router>
           <div> */}
-            <Header />
+            <Header onChange={this.handleChange}/>
             <Switch>
 
-              <Route exact path="/" render={() => <DealCollection className="cardsList" deals={this.state.deals} handleClick={this.dealInfo} />} />
+              <Route exact path="/login" component={SignIn}/>
+
+              <Route exact path="/deals" render={() => <DealCollection className="cardsList" deals={this.filteredDeals()} handleClick={this.dealInfo} />} />
 
               {/* <Route exact path="/deal" render={() => <DealCard card={this.state.currentDeal} />} /> */}
 
