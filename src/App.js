@@ -83,7 +83,7 @@ class App extends Component {
   }
 
 filteredDeals = () => {
-  return this.state.deals.filter(deal => {
+  return this.state.deals === [] ? null : this.state.deals.filter(deal => {
     return deal.category.toLowerCase().includes(this.state.searchTerm) || deal.title.toLowerCase().includes(this.state.searchTerm)
     // || deal.description.toLowerCase().includes(this.state.searchTerm)
   })

@@ -41,7 +41,7 @@ class CreateDealForm extends React.Component {
       .then(resp => resp.json())
       .then(deal => {
         this.props.createDeal(deal)
-        this.props.history.push('/')
+        this.props.history.push('/deals')
       })
 
        e.target.reset()
