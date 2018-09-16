@@ -1,52 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
+import { addDeal } from '../../../actions'
 
 class CreateDealForm extends React.Component {
-    constructor() {
-    super()
-
-    this.state = {
-      title: '',
-      location: '',
-      expiration_date: '',
-      category: '',
-      description: '',
-      image: ''
-    }
+  constructor (props) {
+    super(props)
+    this.state = {}
   }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newDeal = {
-      title: this.state.title,
-      location: this.state.location,
-      expiration_date: this.state.expiration_date,
-      category: this.state.category,
-      description: this.state.description,
-      image: this.state.image
-      }
-
-      // console.log(newDeal);
-
-    fetch(`http://localhost:3000/api/v1/deals`, {
-      method: 'POST',
-      headers: {
-        'Content-Type':'application/json',
-        'Accept':'application/json'
-      },
-      body: JSON.stringify(newDeal),
-    })
-      .then(resp => resp.json())
-      .then(deal => {
-        this.props.createDeal(deal)
-        this.props.history.push('/deals')
-      })
-
-       e.target.reset()
-  }
-
 
   handleTitle = (e) => {
     // console.log(e.target.value);
@@ -77,8 +39,6 @@ class CreateDealForm extends React.Component {
   }
 
   handleCategory = (e) => {
-    // debugger;
-    console.log(e.target.innerText);
     this.setState({
       category: e.target.innerText
     })
@@ -91,8 +51,7 @@ class CreateDealForm extends React.Component {
     })
   }
 
-  render(){
-    console.log(this.props);
+  render() {
   const options = [
     { key: 'food', text: 'Food', value: 'food' },
     { key: 'beverages', text: 'Beverages', value: 'beverages' },
@@ -106,8 +65,18 @@ class CreateDealForm extends React.Component {
     { key: 'pet supplies', text : 'Pet Supplies', value: 'pet supplies' }
   ]
 
-    return(
+    return (
       <div className="createNewDeal">
+        {
+          this.props.status && (
+            <div class='ui positive message'>
+              <div class='header'>Upload Success!</div>
+              <p>
+                Deal Successfully Uploaded!
+              </p>
+            </div>
+          )
+        }
         <br />
         <h3>Add New Deal</h3>
         <Form onSubmit={this.handleSubmit}>
@@ -127,11 +96,19 @@ class CreateDealForm extends React.Component {
 
           </Form>
           <br />
-          <Form.Button>Submit Deal</Form.Button>
+          <Form.Button onClick={() => { this.props.onClick(this.state) }}>Submit Deal</Form.Button>
         </Form>
       </div>
     )
   }
 }
 
-export default withRouter(CreateDealForm)
+const mapStateToProps = state => ({
+  status: state.deals.status
+})
+
+const mapDispatchToProps = dispatch => ({
+  onClick: deal => dispatch(addDeal(deal))
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateDealForm))
