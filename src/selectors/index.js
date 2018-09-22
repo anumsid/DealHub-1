@@ -14,3 +14,4 @@ export const getUserCredentials = state => state.auth.user ? state.auth.user : '
 export const getNewComment = state => state.deals.newComment ? state.deals.newComment : ''
 export const getVote = state => state.deals.vote ? state.deals.vote : {}
 export const getNewUser = state => state.auth.newUser ? state.auth.newUser : {}
+export const getErrorMessage = state => state.auth.message ? state.auth.message : ''

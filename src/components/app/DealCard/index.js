@@ -8,8 +8,8 @@ const DealCard = props => {
   return (
     <div className='card mx-auto' style={{ width: '30rem' }}>
       <div style={{ textAlign: 'left' }}>
-        <Label color='pink' style={{ display: 'inline-block' }}><i ariaHidden className='like icon' />{cardData.votes.length}</Label>
-        <Label color='blue' className='ui label' style={{ display: 'inline-block' }}><i ariaHidden className='comment icon' />{cardData.comments.length}</Label>
+        <Label color='pink' style={{ display: 'inline-block' }}><i aria-hidden className='like icon' />{cardData.votes.length}</Label>
+        <Label color='blue' className='ui label' style={{ display: 'inline-block' }}><i aria-hidden className='comment icon' />{cardData.comments.length}</Label>
       </div>
       <DealCardItem card={cardData} />
       <button className='btn btn-primary' onClick={() => { props.handleClick(props.card.id) }}>See Details</button>

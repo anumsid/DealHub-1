@@ -2,7 +2,7 @@ import React from 'react'
 
 const DealCardItem = ({ card }) => (
   <React.Fragment>
-    <img className='card-img-top' src={card.image} alt='Card image cap' />
+    <img className='card-img-top' src={card.image} alt='Card cap' />
     <div className='card-body'>
       <h4 className='card-title'>{card.title}</h4>
       <h5 className='card-title'>@: {card.location}</h5>

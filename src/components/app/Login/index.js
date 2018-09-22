@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
 import { userCredentials } from '../../../actions'
+import { getErrorMessage } from '../../../selectors'
 
 class SignIn extends React.Component {
   constructor (props) {
@@ -28,13 +29,17 @@ class SignIn extends React.Component {
         <div>
           <h3 id='slogan'>Real deals crowdsourced by an awesome community </h3>
         </div>
-        <br /><br /><br />
-        <Form>
-          <Form style={{width: '40rem'}} className='mx-auto'>
-            <Form.Input fluid label='Enter email' type='email' placeholder='Email' onChange={this.onChange} />
-            <Form.Input fluid label='Enter password' type='password' placeholder='Password' onChange={this.onChange} />
-          </Form>
-          <br /><br />
+        <br />
+        <br />
+        <br />
+        <Form style={{width: '40rem'}} className='mx-auto'>
+          <Form.Input fluid label='Enter email' type='email' placeholder='Email' onChange={this.onChange} />
+          <Form.Input fluid label='Enter password' type='password' placeholder='Password' onChange={this.onChange} />
+          <br />
+          {
+            this.props.errorMessage && <span style={{ color: 'red' }}>{this.props.errorMessage}</span>
+          }
+          <br />
           <Form.Button onClick={this.onClick}>Login</Form.Button>
         </Form>
       </div>
@@ -42,7 +47,9 @@ class SignIn extends React.Component {
   }
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = state => ({
+  errorMessage: getErrorMessage(state)
+})
 
 const mapDispatchToProps = dispatch => ({
   onClick: user => dispatch(userCredentials(user))

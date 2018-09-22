@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
 import { registerUser } from '../../../actions'
+import { getErrorMessage } from '../../../selectors'
 
 class SignUp extends React.Component {
   constructor (props) {
@@ -36,22 +37,25 @@ class SignUp extends React.Component {
     ]
 
     return (
-      <Form>
-        <Form style={{ width: '40rem', marginTop: 100 }} className='mx-auto'>
-          <Form.Input fluid label='Name' placeholder='First, last' id='name' onChange={this.onChange} />
-          <Form.Input fluid label='Age' placeholder='Age' id='age' onChange={this.onChange} />
-          <Form.Select fluid label='Gender' options={options} placeholder='Gender' id='gender' onChange={this.onChange} />
-          <Form.Input fluid label='City' placeholder='City' id='city' onChange={this.onChange} />
-          <Form.Input fluid label='Email' type='email' placeholder='Email' id='email' onChange={this.onChange} />
-          <Form.Input fluid label='Password' type='password' placeholder='Password' id='password' onChange={this.onChange} />
-        </Form>
+      <Form style={{ width: '40rem', marginTop: 100 }} className='mx-auto'>
+        <Form.Input fluid label='Name' placeholder='First, last' id='name' onChange={this.onChange} />
+        <Form.Input fluid label='Age' placeholder='Age' id='age' onChange={this.onChange} />
+        <Form.Select fluid label='Gender' options={options} placeholder='Gender' id='gender' onChange={this.onChange} />
+        <Form.Input fluid label='City' placeholder='City' id='city' onChange={this.onChange} />
+        <Form.Input fluid label='Email' type='email' placeholder='Email' id='email' onChange={this.onChange} />
+        <Form.Input fluid label='Password' type='password' placeholder='Password' id='password' onChange={this.onChange} />
+        {
+          this.props.errorMessage && <span style={{ color: 'red' }}>{this.props.errorMessage}</span>
+        }
         <Form.Button onClick={() => { this.props.onClick(this.state) }}>Signup</Form.Button>
       </Form>
     )
   }
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = state => ({
+  errorMessage: getErrorMessage(state)
+})
 
 const mapDispatchToProps = dispatch => ({
   onClick: user => dispatch(registerUser(user))

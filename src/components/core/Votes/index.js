@@ -7,7 +7,7 @@ import { upVote } from '../../../actions'
 const Votes = ({ votes, auth, dealId, onClick }) => {
   return (
     <div style={{ textAlign: 'left' }}>
-      <Label color='pink' style={{ display: 'inline-block' }}><i ariaHidden className='like icon' />{votes ? votes.length : 0}</Label>
+      <Label color='pink' style={{ display: 'inline-block' }}><i aria-hidden className='like icon' />{votes ? votes.length : 0}</Label>
       {
         auth && <Button onClick={() => { onClick({ deal_id: dealId }) }} color='pink'>UpVote this Deal</Button>
       }

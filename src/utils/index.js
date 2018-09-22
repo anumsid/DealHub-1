@@ -34,8 +34,7 @@ export const serviceManager = (endpoint, state, token) => {
     headers,
     body
   })
-  .then(res => res.json())
-  .then(response => response)
+  .then(async res => ({ ok: res.ok, response: await res.json() }))
 }
 
 export const getPageTypeFromRoute = route => Object.keys(patterns).filter(p => patterns[p].test(route))[0]

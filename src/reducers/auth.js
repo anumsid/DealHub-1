@@ -8,7 +8,7 @@ export const auth = (state = initialState, action) => {
         user: action.user
       }
     case 'ADD_USER_TOKEN':
-      window.localStorage.setItem('token', action.token)
+      if (action.token) window.localStorage.setItem('token', action.token)
       return {
         token: action.token
       }
@@ -16,6 +16,16 @@ export const auth = (state = initialState, action) => {
       return {
         ...state,
         newUser: action.newUser
+      }
+    case 'LOGIN_ERROR':
+      return {
+        ...state,
+        message: action.message
+      }
+    case 'REGISTRATION_ERROR':
+      return {
+        ...state,
+        message: action.message
       }
     case 'LOGOUT':
       window.localStorage.removeItem('token')

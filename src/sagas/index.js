@@ -20,7 +20,7 @@ import { endPointMapper } from '../config/endPointMapper'
 function * fetchDeals () {
   try {
     const deals = yield call(serviceManager, endPointMapper.FETCH_ALL_DEALS)
-    yield put({ type: 'ADD_DEALS_DATA', deals })
+    if (deals.ok) yield put({ type: 'ADD_DEALS_DATA', deals: deals.response })
   } catch (e) {
     console.error(e.message)
   }
@@ -31,7 +31,7 @@ function * getDealDetail () {
     const id = yield select(getDealIdString)
     const userData = yield call(serviceManager, endPointMapper.FETCH_ALL_USERS)
     const dealDetails = yield call(serviceManager, endPointMapper.FETCH_DEAL, { id })
-    yield put({ type: 'ADD_DEAL_DATA', dealDetails, userData })
+    if (dealDetails.ok) yield put({ type: 'ADD_DEAL_DATA', dealDetails: dealDetails.response, userData: userData.response })
   } catch (e) {
     console.error(e.message)
   }
@@ -42,9 +42,7 @@ function * addDeal () {
     const deal = yield select(getNewDeal)
     const token = yield select(getAuthToken)
     const dealUpload = yield call(serviceManager, endPointMapper.ADD_NEW_DEAL, deal, token)
-    if (dealUpload) {
-      yield put({ type: 'UPLOAD_DEAL_SUCCESS', status: 'success' })
-    }
+    if (dealUpload.ok) yield put({ type: 'UPLOAD_DEAL_SUCCESS', status: 'success' })
   } catch (e) {
     console.error(e.message)
   }
@@ -55,9 +53,7 @@ function * addComment () {
     const comment = yield select(getNewComment)
     const token = yield select(getAuthToken)
     const commentUpload = yield call(serviceManager, endPointMapper.ADD_COMMENT, comment, token)
-    if (commentUpload) {
-      yield put({ type: 'UPLOAD_COMMENT_SUCCESS', commentUpload })
-    }
+    if (commentUpload.ok) yield put({ type: 'UPLOAD_COMMENT_SUCCESS', commentUpload: commentUpload.repsonse })
   } catch (e) {
     console.error(e.message)
   }
@@ -68,9 +64,7 @@ function * upVote () {
     const vote = yield select(getVote)
     const token = yield select(getAuthToken)
     const voteUpload = yield call(serviceManager, endPointMapper.VOTE, vote, token)
-    if (voteUpload) {
-      yield put({ type: 'UPLOAD_VOTE_SUCCESS', voteUpload })
-    }
+    if (voteUpload.ok) yield put({ type: 'UPLOAD_VOTE_SUCCESS', voteUpload: voteUpload.response })
   } catch (e) {
     console.error(e.message)
   }
@@ -79,8 +73,9 @@ function * upVote () {
 function * userLogin () {
   try {
     const user = yield select(getUserCredentials)
-    const { token } = yield call(serviceManager, endPointMapper.LOGIN, user)
-    yield put({ type: 'ADD_USER_TOKEN', token })
+    const token = yield call(serviceManager, endPointMapper.LOGIN, user)
+    if (token.ok) yield put({ type: 'ADD_USER_TOKEN', token: token.response.token })
+    else yield put({ type: 'LOGIN_ERROR', message: 'Invalid username or password' })
   } catch (e) {
     console.error(e.message)
   }
@@ -90,9 +85,8 @@ function * registerUser () {
   try {
     const newUser = yield select(getNewUser)
     const userSuccess = yield call(serviceManager, endPointMapper.REGISTER, newUser)
-    if (userSuccess) {
-      yield put({ type: 'USER_LOGIN', user: { email: newUser.email, password: newUser.password } })
-    }
+    if (userSuccess.ok) yield put({ type: 'USER_LOGIN', user: { email: newUser.email, password: newUser.password } })
+    else yield put({ type: 'REGISTRATION_ERROR', message: 'Email already in use' })
   } catch (e) {
     console.error(e.message)
   }
