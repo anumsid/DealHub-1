@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { filterDeals } from '../../../actions'
 
-class SearchDeals extends React.Component {
+export class SearchDeals extends React.Component {
   constructor (props) {
     super(props)
     this.onChange = this.onChange.bind(this)

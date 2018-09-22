@@ -4,7 +4,7 @@ import { push } from 'react-router-redux'
 import { getDeals } from '../../../selectors'
 import DealCard from '../DealCard'
 
-const DealCollection = props => {
+export const DealCollection = props => {
   const cards = props.deals.reverse().map(deal => {
     return <DealCard key={deal.id} card={deal} handleClick={props.handleClick} style={{ width: '30rem' }} />
   })

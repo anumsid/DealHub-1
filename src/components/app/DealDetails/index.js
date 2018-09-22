@@ -6,7 +6,7 @@ import Votes from '../../core/Votes'
 import DealCardItem from '../../core/DealCardItem'
 import { getDealDetails, getUserData } from '../../../selectors'
 
-const DealCardDetails = ({ card, users, ...props }) => (
+export const DealCardDetails = ({ card, users, ...props }) => (
   <React.Fragment>
     <div className='card mx-auto' style={{ width: '30rem', marginBottom: 15 }}>
       <DealCardItem card={card} />

@@ -7,7 +7,7 @@ import Search from '../Search'
 import { getAuthToken } from '../../../selectors'
 import { logout } from '../../../actions'
 
-const Header = props => {
+export const Header = props => {
   return (
     <div className='fixed-top'>
       {

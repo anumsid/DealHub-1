@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react'
 import { registerUser } from '../../../actions'
 import { getErrorMessage } from '../../../selectors'
 
-class SignUp extends React.Component {
+export class SignUp extends React.Component {
   constructor (props) {
     super(props)
     this.onChange = this.onChange.bind(this)

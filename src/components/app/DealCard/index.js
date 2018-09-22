@@ -2,7 +2,7 @@ import React from 'react'
 import { Label } from 'semantic-ui-react'
 import DealCardItem from '../../core/DealCardItem'
 
-const DealCard = props => {
+export const DealCard = props => {
   const cardData = props.card ? (props.card) : {title: '', likes: '', image: '', description: '', location: '', category: '', expiration_date: ''}
 
   return (

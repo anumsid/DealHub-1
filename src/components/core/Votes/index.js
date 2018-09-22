@@ -4,7 +4,7 @@ import { Label, Button } from 'semantic-ui-react'
 import { getAuthToken } from '../../../selectors'
 import { upVote } from '../../../actions'
 
-const Votes = ({ votes, auth, dealId, onClick }) => {
+export const Votes = ({ votes, auth, dealId, onClick }) => {
   return (
     <div style={{ textAlign: 'left' }}>
       <Label color='pink' style={{ display: 'inline-block' }}><i aria-hidden className='like icon' />{votes ? votes.length : 0}</Label>

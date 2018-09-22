@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 import { addDeal } from '../../../actions'
 
-class CreateDealForm extends React.Component {
+export class CreateDealForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}

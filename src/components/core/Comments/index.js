@@ -18,7 +18,7 @@ const MapComments = ({ comments, users }) => {
   }) : null
 }
 
-class Comments extends React.Component {
+export class Comments extends React.Component {
   constructor (props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
