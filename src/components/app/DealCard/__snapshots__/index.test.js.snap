@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deal Card Component Matches snapshot 1`] = `
+<div
+  className="card mx-auto"
+  style={
+    Object {
+      "width": "30rem",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "textAlign": "left",
+      }
+    }
+  >
+    <Label
+      color="pink"
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
+      <i
+        aria-hidden={true}
+        className="like icon"
+      />
+      2
+    </Label>
+    <Label
+      className="ui label"
+      color="blue"
+      style={
+        Object {
+          "display": "inline-block",
+        }
+      }
+    >
+      <i
+        aria-hidden={true}
+        className="comment icon"
+      />
+      2
+    </Label>
+  </div>
+  <Component
+    card={
+      Object {
+        "category": "Food & Beverages",
+        "comments": Array [
+          "",
+          "",
+        ],
+        "description": "Hello World",
+        "expiration_date": "2018-07-31T00:00:00.000Z",
+        "id": 0,
+        "image": "",
+        "location": "New York",
+        "title": "Cool Deal",
+        "votes": Array [
+          "",
+          "",
+        ],
+      }
+    }
+  />
+  <button
+    className="btn btn-primary"
+    onClick={[Function]}
+  >
+    See Details
+  </button>
+</div>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments Component Matches snapshot 1`] = `
+<div
+  className="comments"
+>
+  <form
+    onSubmit={[Function]}
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    <input
+      name="content"
+      onChange={[Function]}
+      placeholder="Add Comment"
+      type="text"
+    />
+    <label
+      htmlFor="Add Comment"
+    />
+    <button>
+      Add Comment!
+    </button>
+  </form>
+  <div
+    className="ui divided middle aligned list"
+  >
+    <MapComments
+      comments={
+        Array [
+          Object {
+            "content": "hello world",
+            "id": 2,
+            "user_id": 1,
+          },
+          Object {
+            "content": "this is cool!",
+            "id": 3,
+            "user_id": 1,
+          },
+        ]
+      }
+      users={
+        Array [
+          Object {
+            "id": 1,
+            "name": "joe blow",
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

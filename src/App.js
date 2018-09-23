@@ -25,7 +25,7 @@ const NoAuthRoute = ({ auth, component: Component }) => {
   return <Redirect to='/' />
 }
 
-const App = ({ auth }) => (
+export const App = ({ auth }) => (
   <div className='App'>
     <Header />
     <Switch>

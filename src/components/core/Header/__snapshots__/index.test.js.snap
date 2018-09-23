@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component Matches snapshot 1`] = `
+<div
+  className="fixed-top"
+>
+  <Connect(Component) />
+  <Connect(SearchDeals) />
+  <div
+    className="navbar-collapse"
+    id="navbarNavAltMarkup"
+  >
+    <div
+      className="navItems"
+    >
+      <Link
+        className="linkItem text-light"
+        replace={false}
+        to="/"
+      >
+        Home
+      </Link>
+      <Link
+        className="linkItem text-light"
+        onClick={[Function]}
+        replace={false}
+        to="#"
+      >
+        Logout
+      </Link>
+    </div>
+  </div>
+  <header
+    className="App-header align-content-center"
+  >
+    <h1
+      className="App-title"
+    >
+      Welcome to DealHub
+    </h1>
+  </header>
+</div>
+`;

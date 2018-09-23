@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register Component Matches snapshot 1`] = `
+<Form
+  as="form"
+  className="mx-auto"
+  style={
+    Object {
+      "marginTop": 100,
+      "width": "40rem",
+    }
+  }
+>
+  <FormInput
+    as={[Function]}
+    control={[Function]}
+    fluid={true}
+    id="name"
+    label="Name"
+    onChange={[Function]}
+    placeholder="First, last"
+  />
+  <FormInput
+    as={[Function]}
+    control={[Function]}
+    fluid={true}
+    id="age"
+    label="Age"
+    onChange={[Function]}
+    placeholder="Age"
+  />
+  <FormSelect
+    as={[Function]}
+    control={[Function]}
+    fluid={true}
+    id="gender"
+    label="Gender"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "m",
+          "text": "Male",
+          "value": "male",
+        },
+        Object {
+          "key": "f",
+          "text": "Female",
+          "value": "female",
+        },
+      ]
+    }
+    placeholder="Gender"
+  />
+  <FormInput
+    as={[Function]}
+    control={[Function]}
+    fluid={true}
+    id="city"
+    label="City"
+    onChange={[Function]}
+    placeholder="City"
+  />
+  <FormInput
+    as={[Function]}
+    control={[Function]}
+    fluid={true}
+    id="email"
+    label="Email"
+    onChange={[Function]}
+    placeholder="Email"
+    type="email"
+  />
+  <FormInput
+    as={[Function]}
+    control={[Function]}
+    fluid={true}
+    id="password"
+    label="Password"
+    onChange={[Function]}
+    placeholder="Password"
+    type="password"
+  />
+  <FormButton
+    as={[Function]}
+    control={[Function]}
+    onClick={[Function]}
+  >
+    Signup
+  </FormButton>
+</Form>
+`;

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DealCardItem = ({ card }) => (
+export const DealCardItem = ({ card }) => (
   <React.Fragment>
     <img className='card-img-top' src={card.image} alt='Card cap' />
     <div className='card-body'>

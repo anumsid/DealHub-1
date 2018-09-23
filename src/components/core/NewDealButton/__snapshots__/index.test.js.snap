@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Deal Button Component Matches snapshot 1`] = `
+<Button
+  as="button"
+  className="new-deal-button"
+  onClick={[Function]}
+  secondary={true}
+>
+  Add New Deal
+</Button>
+`;

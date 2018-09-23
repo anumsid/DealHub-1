@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Component Matches snapshot 1`] = `
+<div
+  className="searchInput ui small fluid icon input"
+  style={
+    Object {
+      "width": "15rem",
+    }
+  }
+>
+  <input
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Search deals"
+    type="text"
+  />
+  <i
+    className="circular search link icon"
+    onClick={[Function]}
+  />
+</div>
+`;

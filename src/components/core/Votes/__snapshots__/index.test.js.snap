@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Votes Component Matches snapshot 1`] = `
+<div
+  style={
+    Object {
+      "textAlign": "left",
+    }
+  }
+>
+  <Label
+    color="pink"
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  >
+    <i
+      aria-hidden={true}
+      className="like icon"
+    />
+    0
+  </Label>
+  <Button
+    as="button"
+    color="pink"
+    onClick={[Function]}
+  >
+    UpVote this Deal
+  </Button>
+</div>
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component Matches snapshot 1`] = `
+<footer
+  className="page-footer"
+>
+  <nav
+    className="navbar fixed-bottom"
+  >
+    <p
+      className="navbar-brand"
+    >
+       © 2018 DealHub
+    </p>
+  </nav>
+</footer>
+`;

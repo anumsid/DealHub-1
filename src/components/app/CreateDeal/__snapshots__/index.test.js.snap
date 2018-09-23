@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Deal Component Matches snapshot 1`] = `
+<div
+  className="createNewDeal"
+>
+  <br />
+  <h3>
+    Add New Deal
+  </h3>
+  <Form
+    as="form"
+  >
+    <Form
+      as="form"
+      className="mx-auto large"
+      style={
+        Object {
+          "width": "40rem",
+        }
+      }
+    >
+      <FormInput
+        as={[Function]}
+        control={[Function]}
+        fluid={true}
+        label="title"
+        name="title"
+        onChange={[Function]}
+        placeholder="title"
+      />
+      <FormInput
+        as={[Function]}
+        control={[Function]}
+        fluid={true}
+        label="location"
+        name="location"
+        onChange={[Function]}
+        placeholder="location"
+      />
+      <FormTextArea
+        as={[Function]}
+        control={[Function]}
+        fluid={true}
+        label="description"
+        onChange={[Function]}
+        placeholder="describe this deal"
+      />
+      <FormInput
+        as={[Function]}
+        control={[Function]}
+        fluid={true}
+        label="expiration"
+        name="expiration"
+        onChange={[Function]}
+        placeholder="expiration"
+        type="date"
+      />
+      <FormSelect
+        as={[Function]}
+        control={[Function]}
+        fluid={true}
+        label="Categories"
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "key": "food",
+              "text": "Food",
+              "value": "food",
+            },
+            Object {
+              "key": "beverages",
+              "text": "Beverages",
+              "value": "beverages",
+            },
+            Object {
+              "key": "groceries",
+              "text": "Groceries",
+              "value": "groceries",
+            },
+            Object {
+              "key": "technology",
+              "text": "Technology",
+              "value": "technology",
+            },
+            Object {
+              "key": "electronics",
+              "text": "Electronics",
+              "value": "electronics",
+            },
+            Object {
+              "key": "apparel",
+              "text": "Apparel",
+              "value": "apparel",
+            },
+            Object {
+              "key": "auto",
+              "text": "Auto",
+              "value": "auto",
+            },
+            Object {
+              "key": "home",
+              "text": "Home",
+              "value": "home",
+            },
+            Object {
+              "key": "sports & outdoors",
+              "text": "Sports & Outdoors",
+              "value": "sports & outdoors",
+            },
+            Object {
+              "key": "pet supplies",
+              "text": "Pet Supplies",
+              "value": "pet supplies",
+            },
+          ]
+        }
+        placeholder="Select Category"
+      />
+      <FormInput
+        as={[Function]}
+        control={[Function]}
+        fluid={true}
+        label="image [OPTIONAL]"
+        name="image"
+        onChange={[Function]}
+        placeholder="url"
+      />
+    </Form>
+    <br />
+    <FormButton
+      as={[Function]}
+      control={[Function]}
+      onClick={[Function]}
+    >
+      Submit Deal
+    </FormButton>
+  </Form>
+</div>
+`;

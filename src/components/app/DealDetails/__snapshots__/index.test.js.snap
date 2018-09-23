@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deal Card Component Matches snapshot 1`] = `
+<Fragment>
+  <div
+    className="card mx-auto"
+    style={
+      Object {
+        "marginBottom": 15,
+        "width": "30rem",
+      }
+    }
+  >
+    <Component
+      card={
+        Object {
+          "category": "Food & Beverages",
+          "comments": Array [
+            "",
+            "",
+          ],
+          "description": "Hello World",
+          "expiration_date": "2018-07-31T00:00:00.000Z",
+          "id": 0,
+          "image": "",
+          "location": "New York",
+          "title": "Cool Deal",
+          "votes": Array [
+            "",
+            "",
+          ],
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "margin": "0 auto",
+        "width": "30rem",
+      }
+    }
+  >
+    <Connect(Component)
+      dealId={0}
+      votes={
+        Array [
+          "",
+          "",
+        ]
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "margin": "30px auto",
+        "textAlign": "left",
+        "width": "30rem",
+      }
+    }
+  >
+    <Connect(Comments)
+      comments={
+        Array [
+          "",
+          "",
+        ]
+      }
+      dealId={0}
+      users={Array []}
+    />
+  </div>
+</Fragment>
+`;

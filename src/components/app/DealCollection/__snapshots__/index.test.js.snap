@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deal Collection Component Matches snapshot 1`] = `
+<div
+  className="card-columns mx-auto"
+>
+  <div
+    className="cards"
+  >
+    <Component
+      card={
+        Object {
+          "category": "Food & Beverages",
+          "comments": Array [
+            "",
+            "",
+          ],
+          "description": "Hello World",
+          "expiration_date": "2018-07-31T00:00:00.000Z",
+          "id": 0,
+          "image": "",
+          "location": "New York",
+          "title": "Cool Deal",
+          "votes": Array [
+            "",
+            "",
+          ],
+        }
+      }
+      handleClick={[Function]}
+      key="0"
+      style={
+        Object {
+          "width": "30rem",
+        }
+      }
+    />
+  </div>
+</div>
+`;

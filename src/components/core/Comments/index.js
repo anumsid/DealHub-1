@@ -51,7 +51,6 @@ export class Comments extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  status: state.deals.commentStatus,
   authToken: getAuthToken(state)
 })
 

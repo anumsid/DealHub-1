@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deal Card Item Component Matches snapshot 1`] = `
+<Fragment>
+  <img
+    alt="Card cap"
+    className="card-img-top"
+    src=""
+  />
+  <div
+    className="card-body"
+  >
+    <h4
+      className="card-title"
+    >
+      Cool Deal
+    </h4>
+    <h5
+      className="card-title"
+    >
+      @: 
+      New York
+    </h5>
+    <h5
+      className="card-title"
+    >
+      Food & Beverages
+    </h5>
+    <h5
+      className="card-expiration"
+    >
+      Until: 
+      2018-07-31T00:00:00.000Z
+    </h5>
+    <p
+      className="card-text"
+    >
+      Hello World
+    </p>
+  </div>
+</Fragment>
+`;
