@@ -53,7 +53,7 @@ function * addComment () {
     const comment = yield select(getNewComment)
     const token = yield select(getAuthToken)
     const commentUpload = yield call(serviceManager, endPointMapper.ADD_COMMENT, comment, token)
-    if (commentUpload.status) yield put({ type: 'UPLOAD_COMMENT_SUCCESS', commentUpload: commentUpload.repsonse })
+    if (commentUpload.status) yield put({ type: 'UPLOAD_COMMENT_SUCCESS', commentUpload: commentUpload.response })
   } catch (e) {
     console.error(e.message)
   }
